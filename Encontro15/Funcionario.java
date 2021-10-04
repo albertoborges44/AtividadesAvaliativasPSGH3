@@ -10,129 +10,127 @@
 import java.util.*;
 public class Funcionario extends Pais {
     
-    private int FuncionarioID;
-    private long ChaveID;
-    private String Nome;
-    private String SobreNome;
-    private Date DataAdmissao;
-    private char Sexo;
-    private Date DataNascimento;
-    private String Email;
-    private String CTPS ;
-    private long CTPSNum;
-    private String CTPSSERIE;
-    private int PaisID;
+    private int funcionarioID;
+    private long chaveID;
+    private String nome;
+    private String sobreNome;
+    private Date dataAdmissao;
+    private char sexo;
+    private Date dataNascimento;
+    private String email;
+    private String ctps ;
+    private long ctpsNum;
+    private String ctpsSerie;
+    private int paisID;
     
     private Pais pais;
     
-    public Funcionario(Pais pais){
-        this.pais = pais;
-    }
 
     public int getFuncionarioID() {
-        return FuncionarioID;
+        return funcionarioID;
     }
-
+    
+    public void setFuncionarioID(int FuncionarioID) {
+        this.funcionarioID = funcionarioID;
+    }
+    
     public long getChaveID() {
-        return ChaveID;
+        return chaveID;
+    }
+    
+    public void setChaveID(long ChaveID) {
+        this.chaveID = chaveID;
     }
 
     public String getNome() {
-        return Nome;
+        return nome;
     }
+    
+    public void setNome(String Nome) {
+        this.nome = nome;
+    }
+    
 
     public String getSobreNome() {
-        return SobreNome;
+        return sobreNome;
+    }
+    
+    public void setSobreNome(String SobreNome) {
+        this.sobreNome = sobreNome;
     }
 
     public Date getDataAdmissao() {
-        return DataAdmissao;
+        return dataAdmissao;
+    }
+    
+    public void setDataAdmissao(Date DataAdmissao) {
+        this.dataAdmissao = DataAdmissao;
     }
 
     public char getSexo() {
-        return Sexo;
+        return sexo;
+    }
+    
+    public void setSexo(char Sexo) {
+        this.sexo = Sexo;
     }
 
     public Date getDataNascimento() {
-        return DataNascimento;
+        return dataNascimento;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public String getCTPS() {
-        return CTPS;
+        return ctps;
     }
 
     public long getCTPSNum() {
-        return CTPSNum;
+        return ctpsNum;
     }
 
     public String getCTPSSERIE() {
-        return CTPSSERIE;
+        return ctpsSerie;
     }
 
     public int getPaisID() {
-        return PaisID;
+        return paisID;
     }
 
     public Pais getPais() {
         return pais;
     }
 
-    public void setFuncionarioID(int FuncionarioID) {
-        this.FuncionarioID = FuncionarioID;
-    }
-
-    public void setChaveID(long ChaveID) {
-        this.ChaveID = ChaveID;
-    }
-
-    public void setNome(String Nome) {
-        this.Nome = Nome;
-    }
-
-    public void setSobreNome(String SobreNome) {
-        this.SobreNome = SobreNome;
-    }
-
-    public void setDataAdmissao(Date DataAdmissao) {
-        this.DataAdmissao = DataAdmissao;
-    }
-
-    public void setSexo(char Sexo) {
-        this.Sexo = Sexo;
-    }
-
     public void setDataNascimento(Date DataNascimento) {
-        this.DataNascimento = DataNascimento;
+        this.dataNascimento = DataNascimento;
     }
 
     public void setEmail(String Email) {
-        this.Email = Email;
+        this.email = Email;
     }
 
     public void setCTPS(String CTPS) {
-        this.CTPS = CTPS;
+        this.ctps = CTPS;
     }
 
     public void setCTPSNum(long CTPSNum) {
-        this.CTPSNum = CTPSNum;
+        this.ctpsNum = CTPSNum;
     }
 
     public void setCTPSSERIE(String CTPSSERIE) {
-        this.CTPSSERIE = CTPSSERIE;
-    }
-
-    public void setPaisID(int PaisID) {
-        this.PaisID = PaisID;
+        this.ctpsSerie = CTPSSERIE;
     }
 
     public void setPais(Pais pais) {
         this.pais = pais;
     }
+     
 
-   
+   public Funcionario(Pais pais){
+        this.pais = pais;
+        this.paisID = this.pais.getPaisID();
+    }
     
 }

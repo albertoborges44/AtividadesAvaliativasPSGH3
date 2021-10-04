@@ -12,13 +12,19 @@ public class  Produto extends CamposComuns{
     private int produtoID;
     private int categoriaID;
     private int subCategoriaID;
+    private Produto produtos[];
     
     private SubCategoria subCategoria;
     
     public Produto (SubCategoria subCategoria){
         
         this.subCategoria = subCategoria;
+        this.categoriaID = this.subCategoria.getCategoria().getCategoriaID;
     }
+    
+    public Produto[] getProdutos(){
+        return this.produtos;
+    } 
     
     public int getProdutoID(int ProdutoID){
         return produtoID;
