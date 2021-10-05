@@ -1,56 +1,78 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package Encontro15;
-import java.util.*;
-/**
- *
- * @author LAB05
- */
+package com.mycompany.atividadeencontro15;
+
+import java.util.Date;
+
 public class Estoque {
-    
-    public void TesteComVetores(){
+
+    //Modelo Simples.
+    public void Testar(){
         Date dataDeInsercao = new Date(System.currentTimeMillis());
         
-        Categoria categorias[] = new Categoria[3];
+        Categoria cat = new Categoria();
+        cat.setCategoriaID(1);
+        cat.setDescricao("Categoria Teste");
+        cat.setDataInsert(dataDeInsercao);
         
-        categorias[0] = this.CriarCategoria(1, "Teste 1", dataDeInsercao);
-        categorias[1] = this.CriarCategoria(2, "Teste 2", dataDeInsercao);
-        categorias[2] = this.CriarCategoria(3, "Teste 3", dataDeInsercao);
+        SubCategoria subcat = new SubCategoria(cat);
+        subcat.setSubCategoriaID(1);
+        subcat.setDescricao("SubCategoria Outro Teste");
+        subcat.setDataInsert(dataDeInsercao);
         
+        Produto pro = new Produto(subcat);
+        pro.setProdutoID(1);
+        pro.setDescricao("Produto Novo");
+        pro.setDataInsert(dataDeInsercao);
+
+        Pais pais = new Pais();
+        pais.setPaisID(1);
+        pais.setAbreviacao("EUA");
+
+        Funcionario fun = new Funcionario(pais);
+        fun.setFuncionarioID(1);
+        fun.setChave(123456798);
         
     }
     
-    private Categoria CriarCategoria(int ID, String descricao, Date dataDeInsert){
+    //Modelo Intermediário.
+    public void TestarComVetores(){
+        Date dataDeInsercao = new Date(System.currentTimeMillis());        
+        Categoria categorias[] = new Categoria[3]; 
+        categorias[0] = this.criarCategoria(1, "Teste 1", dataDeInsercao);
+        categorias[1] = this.criarCategoria(2, "Teste 2", dataDeInsercao);
+        categorias[2] = this.criarCategoria(3, "Teste 3", dataDeInsercao);
+    }
+    
+    private Categoria criarCategoria(int id, String descricao, Date dataDeInsert){
         Categoria cat = new Categoria();
-        cat.setCategoriaID(ID);
+        cat.setCategoriaID(id);
         cat.setDescricao(descricao);
         cat.setDataInsert(dataDeInsert);
+        for (int i = 0; i < 3; i++) {
+            int j = i + 1;
+            SubCategoria s = this.criarSubCategoria(cat, j, "Teste SubCategoria " + j, dataDeInsert);
+            cat.AdicionarSubCategoria(s);
+        }
         return cat;
     }
     
-    private SubCategoria CriarSubCategoria(Categoria cat, int id, String descricao, Date dataDeInsert){
+    private SubCategoria criarSubCategoria(Categoria cat, int id, String descricao, Date dataDeInsert){
         SubCategoria sub = new SubCategoria(cat);
         sub.setSubCategoriaID(id);
         sub.setDescricao(descricao);
-        sub.setDateInsert(dataDeInsert);
-        
-        for(int i = 0; i < 3; i++){
+        sub.setDataInsert(dataDeInsert);
+        for (int i = 0; i < 3; i++) {
             int j = i + 1;
-            SubCategoria s = this.criarSubCategoria(cat, j , "Teste SubCategoria " + j, dataDeInsert);
-            cat.AdicionarSubCategoria();
+            Produto p = this.criarProduto(sub, j, "Teste Produto " + j, dataDeInsert);
+            sub.AdicionarProduto(p);
         }
-        
         return sub;
     }
     
-    private Produto CriarProduto(SubCategoria sub, int id, String descricao, Date dataDeInsert){
+    private Produto criarProduto(SubCategoria sub, int id, String descricao, Date dataDeInsert){
         Produto pro = new Produto(sub);
         pro.setProdutoID(id);
         pro.setDescricao(descricao);
-        pro.setDateInsert(dataDeInsert);
+        pro.setDataInsert(dataDeInsert);
         return pro;
-        
     }
 }
