@@ -1,24 +1,28 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+package com.mycompany.atividadeencontro15;
 
-/**
- *
- * @author LAB05
- */
-public class Pais extends CamposComuns {
-    
+public class Pais {
+
     private int paisID;
-    
-   
-    public int getPaisID(){
+
+    private String abreviacao;
+
+    public int getPaisID() {
         return paisID;
     }
-    
-    public void setPaisID(){
+
+    public String getAbreviacao() {
+        return abreviacao;
+    }
+
+    public void setAbreviacao(String abreviacao) {
+        this.abreviacao = abreviacao;
+    }
+
+    public void setPaisID(int paisID) {
         this.paisID = paisID;
     }
 
-    
+    public Pais(){
+        
+    }
 }

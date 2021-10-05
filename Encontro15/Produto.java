@@ -1,39 +1,42 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+package com.mycompany.atividadeencontro15;
 
-/**
- *
- * @author LAB05
- */
-public class  Produto extends CamposComuns{
-    
+public class Produto extends CamposComuns {
+
     private int produtoID;
+    
     private int categoriaID;
+    
     private int subCategoriaID;
-    private Produto produtos[];
     
-    private SubCategoria subCategoria;
+    private SubCategoria subCategoria;    
     
-    public Produto (SubCategoria subCategoria){
-        
-        this.subCategoria = subCategoria;
-        this.categoriaID = this.subCategoria.getCategoria().getCategoriaID;
-    }
-    
-    public Produto[] getProdutos(){
-        return this.produtos;
-    } 
-    
-    public int getProdutoID(int ProdutoID){
+    public int getProdutoID() {
         return produtoID;
     }
-    
-    public void setProdutoID(){
+
+    public void setProdutoID(int produtoID) {
         this.produtoID = produtoID;
     }
-    
-    
-    
+
+    public int getCategoriaID() {
+        return categoriaID;
+    }
+
+    public int getSubCategoriaID() {
+        return subCategoriaID;
+    }
+
+    public SubCategoria getSubCategoria() {
+        return subCategoria;
+    }
+
+    public void setSubCategoria(SubCategoria subCategoria) {
+        this.subCategoria = subCategoria;
+    }
+
+    public Produto(SubCategoria novaSubCategoria){
+        this.subCategoria = novaSubCategoria;
+        this.subCategoriaID = this.subCategoria.getSubCategoriaID();
+        this.categoriaID = this.subCategoria.getCategoria().getCategoriaID();
+    }
 }
