@@ -15,9 +15,9 @@ public class Programa {
 		
 		CategoriaServico serv = new CategoriaServico("exemplo-jpa");
 		
-		serv.inserir(new Categoria(null, "Hello World", new Date()));
+		serv.inserir(new Categoria(null, "outro teste", new Date()));
 		
-//		serv.alterar(new Categoria(24, "Akira não está com covid, fez o teste e deu bom mas está com diabetes :(", new Date()));
+//		serv.alterar(new Categoria(24, "teste", new Date()));
 		
 		System.out.println(serv.obter(20));
 		
