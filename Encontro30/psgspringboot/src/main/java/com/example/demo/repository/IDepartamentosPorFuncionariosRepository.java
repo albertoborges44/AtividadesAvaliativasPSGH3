@@ -10,5 +10,9 @@ public interface IDepartamentosPorFuncionariosRepository extends JpaRepository<D
 	
 	List<DepartamentosPorFuncionarios>findByFuncionarioID(int id);
 	List<DepartamentosPorFuncionarios>findByDeptoID(int id);
+	List<DepartamentosPorFuncionarios>findByFuncionarioIDGreaterThan(int funid);
+	List<DepartamentosPorFuncionarios>findByDataInicialIsNull();
+	List<DepartamentosPorFuncionarios>findByFuncionarioIDBetween(int start, int fim);
+	
 	
 }

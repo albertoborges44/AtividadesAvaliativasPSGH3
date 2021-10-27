@@ -37,7 +37,10 @@ public class FuncionarioController {
 		return this.repo.findByFuncionarioIdGreaterThan(num);
 	}
 	
-	
+	@GetMapping("/funcionarios/between/{start}/{fim}")
+	public List<Funcionario> getByFuncionarioIdBetween(int start, int fim){
+		return this.repo.findByFuncionarioIdBetween(start, fim);
+	}
 	
 	
 	@PostMapping("/funcionarios")

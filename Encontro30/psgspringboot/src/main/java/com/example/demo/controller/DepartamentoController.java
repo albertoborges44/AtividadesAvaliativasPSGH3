@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.Categoria;
 import com.example.demo.model.Departamento;
 import com.example.demo.repository.IDepartamentoRepository;
 
@@ -27,6 +26,12 @@ public class DepartamentoController {
 	public List<Departamento> getAll(){
 		return this.repo.findAll();
 	}
+	
+//	@GetMapping(path = "/departamento/NomeStartingWith/{letra}")
+//	public List<Departamento> getByNomeStartingWith(@PathVariable String letra){
+//		return this.repo.findbyNomeStartingWith(letra);
+//	}
+//	
 	
 	@GetMapping(path = "/departamento/{id}")
 	public Departamento getById(@PathVariable int id) {

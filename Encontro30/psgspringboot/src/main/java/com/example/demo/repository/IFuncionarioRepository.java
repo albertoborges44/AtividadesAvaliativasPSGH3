@@ -14,5 +14,7 @@ public interface IFuncionarioRepository extends JpaRepository<Funcionario, Integ
 	Integer findByFuncionarioIdMax();
 	
 	List<Funcionario> findByFuncionarioIdGreaterThan(int num);
+	List<Funcionario>findByFuncionarioIdBetween(int start, int fim);
+
 	
 }

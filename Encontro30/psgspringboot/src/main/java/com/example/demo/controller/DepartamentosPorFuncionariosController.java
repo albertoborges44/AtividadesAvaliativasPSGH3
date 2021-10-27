@@ -33,11 +33,22 @@ public class DepartamentosPorFuncionariosController {
 		return this.repo.findById(id).orElse(null);
 	}
 	
-//	@GetMapping("/departamentos/greater/{num}")
-//	public List<Departamento> getBydepartamentoIdGreaterThan(@PathVariable int num) {
-//		return this.repo.findBydepartamentoIdGreaterThan(num);
-//	}
-//	
+	@GetMapping("/departamentosporFunc/greater/{funid}")
+	public List<DepartamentosPorFuncionarios> getBydepartamentoIdGreaterThan(@PathVariable int funid) {
+		return this.repo.findByFuncionarioIDGreaterThan(funid);
+	}
+	
+	@GetMapping("/departamentosporFunc/IsNull")
+	public List<DepartamentosPorFuncionarios> getByDataInicialIsNull() {
+		return this.repo.findByDataInicialIsNull();
+	}
+	
+	@GetMapping("/departamentosporFunc/between/{start}/{fim}")
+	public List<DepartamentosPorFuncionarios> getByFuncionarioIDBetween(int start, int fim) {
+		return this.repo.findByFuncionarioIDBetween(start, fim);
+	}
+	
+	
 	@GetMapping(path = "/departamentosPorFunc/funcionario/{funid}")
 	public List<DepartamentosPorFuncionarios> getPorFucionarioID(@PathVariable int funid) {
 		return this.repo.findByFuncionarioID(funid);
